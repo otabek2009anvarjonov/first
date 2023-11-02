@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz</title>
+</head>
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            background-image: linear-gradient(62deg, #005fbe 0%, #fcc3c3 100%);
+        }
+
+        .start_btn,
+        .info_box,
+        .quiz_box,
+        .result_box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .quiz_box.activeQuiz,
+        .result_box.activeResult {
+            opacity: 1;
+            z-index: 5;
+            pointer-events: auto;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .start_btn {
+            font-weight: 700;
+            font-size: 25px;
+            color: #000000;
+            padding: 15px 30px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffffff;
+            cursor: pointer;
+        }
+
+        .start_btn:hover {
+scale: 1.5;
+transform: translate(-50%, -50%);
+        }
+
+        .start_btn:active {
+        scale: 0.5;
+        }
+
+
+        .quiz_box {
+            width: 550px;
+            background-color: #fff;
+            border-radius: 7px;
+            transform: translate(-50%, -50%) scale(0.9);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .quiz_main {
+            padding: 25px 30px 20px 30px;
+            background-color: #fff;
+        }
+
+        .quiz_main .quiz_text {
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        .quiz_main .option_list {
+            padding: 20px 0;
+            display: block;
+        }
+
+        .quiz_main .option_list .option {
+            background: aliceblue;
+            border: 1px solid #84c5fe;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 18px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .quiz_main .option_list .option.correct {
+            /* to'g'ri variant */
+            color: #ffffff;
+            background-color: #0dc839;
+            border: 1px solid #00ff3c;
+        }
+
+        .quiz_main .option_list .option.incorrect {
+            /* noto'g'ri variant */
+            color: white;
+            background-color: #d63333;
+            border: 3px solid #c60818;
+        }
+
+        .quiz_main .option_list .option.disabled {
+            pointer-events: none;
+        }
+
+        footer .next_btn {
+            margin: 0 30px 20px;
+            float: right;
+            height: 40px;
+            padding: 0 15px;
+            font-size: 18px;
+            font-weight: 400;
+            cursor: pointer;
+            outline: none;
+            color: #fff;
+            background-color: #000000;
+        }
+
+        .result_box {
+            font-weight: 700;
+            font-size: 20px;
+            width: 460px;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            transform: translate(-50%, -50%) scale(0.9);
+            opacity: 0;
+            pointer-events: none;
+            background-color: #fff;
+            border-radius: 5px;
+            display: flex;
+            padding: 25px 30px;
+        }
+
+        .result_box .restart {
+            background-color: #000000;
+            color: #ffffff;
+            font-size: 18px;
+            padding: 0 20px;
+            height: 45px;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+
+    <button class="start_btn">Viktorinani boshla</button>
+
+    <div class="quiz_box">
+        <div class="quiz_main">
+            <div class="quiz_text">
+
+            </div>
+            <div class="option_list">
+
+            </div>
+        </div>
+
+        <footer>
+            <button class="next_btn">Keyingi</button>
+        </footer>
+    </div>
+
+    <div class="result_box">
+        <div class="score_text">
+
+        </div>
+        <button class="restart">Qayta boshlash</button>
+    </div>
+
+    <script src="js/questions.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
